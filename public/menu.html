@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Menú Principal</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            background-color: #ff4d4d;
+            color: white;
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+        .logout-button:hover {
+            background-color: #ff1a1a;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img src="bart.png" alt="Logo" class="logo">
+        <h1>Menú Principal</h1>
+        <form method="post" action="/logout" style="position: absolute; top: 20px; right: 20px;">
+            <button type="submit" id="logoutButton" class="logout-button">Cerrar Sesión</button>
+        </form>
+        <ul class="menu-list">
+            <li>CAJA
+                <ul>
+                    <li><a href="apertura_caja.html">APERTURA CAJA</a></li>
+                    <li><a href="#">CIERRE CAJA</a></li>
+                </ul>
+            </li>
+            <li>USUARIOS</li>
+            <li>PRODUCTOS</li>
+            <li>COMPRAS
+                <ul>
+                    <li><a href="#">NUEVA COMPRA</a></li>
+                    <li><a href="#">MODIFICAR COMPRA</a></li>
+                    <li><a href="#">CONSULTA COMPRA</a></li>
+                </ul>
+            </li>
+            <li>PROVEEDORES</li>
+            <li>VENTAS
+                <ul>
+                    <li><a href="#">NUEVA VENTA</a></li>
+                    <li><a href="#">CONSULTA FACTURA</a></li>
+                    <li><a href="#">MODIFICAR FACTURA</a></li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>

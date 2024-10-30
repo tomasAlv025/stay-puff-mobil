@@ -1,0 +1,143 @@
+body {
+    font-family: Arial, sans-serif;
+    background: linear-gradient(to bottom, #00c6ff, #0072ff);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    margin: 0;
+}
+
+.login-container, .register-container {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+    width: 300px;
+}
+
+h2 {
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    text-align: left;
+}
+
+input {
+    margin-bottom: 15px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    width: 100%;
+}
+
+button {
+    padding: 10px;
+    background-color: #4caf50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    width: 100%;
+}
+
+button:hover {
+    background-color: #45a049;
+}
+
+#registerBtn {
+    margin-top: 10px;
+    background-color: #007bff;
+}
+
+#registerBtn:hover {
+    background-color: #0056b3;
+}
+
+#message {
+    color: red;
+}
+
+.logo {
+    width: 100px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 70%;
+}
+
+/* Estilos para el menú principal */
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: white;
+    border-radius: 10px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
+    text-align: center;
+}
+
+.menu-logo{
+    width: 100px;
+    margin-bottom: 20px;
+    border-radius: 70%;
+}
+
+.menu-list {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+}
+
+.menu-list > li {
+    padding: 10px;
+    margin: 0 15px;
+    border-bottom: 1px solid #ddd;
+    margin-bottom: 10px;
+    font-weight: bold;
+    position: relative;
+}
+
+.menu-list > li ul {
+    list-style: none;
+    padding: 0;
+    display: none; /* Ocultar submenú por defecto */
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #fff;
+    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    width: 200px;
+}
+
+.menu-list > li:hover ul {
+    display: block; /* Mostrar submenú al pasar el ratón */
+}
+
+.menu-list > li ul > li {
+    padding: 8px;
+    border-bottom: 1px solid #eee;
+    background-color: #f9f9f9;
+    text-align: left;
+}
+
+.menu-list > li ul > li a {
+    color: #007bff;
+    text-decoration: none;
+    display: block;
+    text-align: 8px 16px;
+}
+
+.menu-list > li ul > li a:hover {
+    text-decoration: underline;
+}

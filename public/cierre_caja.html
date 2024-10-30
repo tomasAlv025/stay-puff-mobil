@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Cierre de Caja</title>
+    <link rel="stylesheet" href="style.css"> <!-- Asegúrate de que la ruta sea correcta -->
+</head>
+<body>
+    <div class="container">
+        <h1>CIERRE DE CAJA</h1>
+        <form id="cierreCajaForm">
+            <label for="empleado">Empleado: <span id="username"></span></h1></label>
+            <span id="empleado"></span>
+            <label for="ingresos">Ingresos:</label>
+            <input type="text" id="ingresos" name="ingresos" placeholder="Valor" required>
+            <label for="egresos">Egresos:</label>
+            <input type="text" id="egresos" name="egresos" placeholder="Valor" required>
+            <label for="montoFinal">Monto Final:</label>
+            <input type="text" id="montoFinal" name="montoFinal" placeholder="Valor" required>
+            <button type="submit">Cerrar Caja</button>
+        </form>
+        <button id="printSalesDetails">Imprimir detalles de venta</button> <!-- Botón para imprimir detalles de venta -->
+    </div>
+    <script src="script.js"></script>
+</body>
+</html>
