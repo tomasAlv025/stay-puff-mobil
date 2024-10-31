@@ -5,10 +5,15 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>StayPuff</title>
   <link rel="stylesheet" href="style.css">
+  <!-- Firebase SDK -->
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-app.js"></script>
   <script src="https://www.gstatic.com/firebasejs/9.0.0/firebase-auth.js"></script>
+  <!-- Configuración de Firebase -->
   <script src="firebase-config.js"></script>
+  <!-- Lógica de Cierre de Sesión -->
   <script src="logout.js"></script>
+  <!-- Lógica de Registro y Login -->
+  <script src="script.js"></script>
 </head>
 <body>
   <div class="login-container">
@@ -24,6 +29,7 @@
     <button id="registerBtn">Registrarse</button>
     <p id="message"></p>
   </div>
+
   <!-- Formulario de registro oculto inicialmente -->
   <div class="register-container" id="registerContainer" style="display: none;">
     <h2>Registrarse</h2>
@@ -41,6 +47,5 @@
       <button type="submit">Registrarse</button>
     </form>
   </div>
-  <script src="script.js"></script>
 </body>
 </html>
