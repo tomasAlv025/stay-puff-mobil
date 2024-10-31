@@ -3,7 +3,7 @@ const jwt = require('jsonwebtoken');
 const bcrypt = require('bcryptjs');
 const path = require('path');
 const bodyParser = require('body-parser');
-const { db } = require('./firebase');
+const { db } = require('./firebase-config');
 const { collection, getDocs, addDoc, query, where } = require('firebase/firestore');
 const app = express();
 const port = 3000; // Puerto donde escuchará la API
@@ -36,6 +36,25 @@ app.post('/login', async (req, res) => {
   const token = jwt.sign({ id: user.id }, SECRET_KEY, { expiresIn: '1h' });
   res.json({ message: 'Login exitoso', token });
 });
+
+//ruta de registro
+app.post('/register', async (req, res)=>{
+  const{username, password0}=req.body;
+
+  //hash la contraseña antes de guardarla en la base de datos
+  const hashPassword = bcrypt.hashSync(password, 8);
+
+  try{
+    //añadir el nuevo usuario a firestore
+    await addDoc(collection (db, 'users'),{
+      username,
+      password: hashedPassword
+    });
+    res.status(201).json({ message: 'usuario registrado existosamete'});
+  } catch (error){
+    res.status(500).json({ mesaage: 'error al registrar el usuario', error});
+  }
+})
 
 // Ruta protegida que requiere autenticación
 app.get('/protected', (req, res) => {
