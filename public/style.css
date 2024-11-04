@@ -1,3 +1,4 @@
+/* Estilos globales */
 body {
     font-family: Arial, sans-serif;
     background: linear-gradient(to bottom, #00c6ff, #0072ff);
@@ -8,13 +9,16 @@ body {
     margin: 0;
 }
 
+/* Contenedores de login y registro */
 .login-container, .register-container {
     background-color: white;
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.2);
     text-align: center;
-    width: 300px;
+    width: 90%; /* Ajuste del ancho en móviles */
+    max-width: 400px; /* Ancho máximo en pantallas más grandes */
+    margin: 10px; /* Espacio extra para evitar cortes en dispositivos pequeños */
 }
 
 h2 {
@@ -67,16 +71,17 @@ button:hover {
 }
 
 .logo {
-    width: 100px;
+    width: 80px; /* Ajuste del tamaño en móviles */
     height: auto;
     display: block;
     margin: 0 auto 20px;
     border-radius: 70%;
 }
 
-/* Estilos para el menú principal */
+/* Contenedor del menú principal */
 .container {
-    width: 80%;
+    width: 90%;
+    max-width: 1200px; /* Ancho máximo en pantallas más grandes */
     margin: 0 auto;
     padding: 20px;
     background-color: white;
@@ -85,32 +90,36 @@ button:hover {
     text-align: center;
 }
 
-.menu-logo{
-    width: 100px;
+/* Logo del menú */
+.menu-logo {
+    width: 80px; /* Ajuste del tamaño en móviles */
     margin-bottom: 20px;
     border-radius: 70%;
 }
 
+/* Menú principal */
 .menu-list {
     list-style: none;
     padding: 0;
     display: flex;
+    flex-direction: column; /* Ajuste de dirección en móviles */
     justify-content: center;
 }
 
+/* Elementos del menú */
 .menu-list > li {
     padding: 10px;
-    margin: 0 15px;
+    margin: 5px 0; /* Ajuste de márgenes para móviles */
     border-bottom: 1px solid #ddd;
-    margin-bottom: 10px;
     font-weight: bold;
     position: relative;
 }
 
+/* Submenú */
 .menu-list > li ul {
     list-style: none;
     padding: 0;
-    display: none; /* Ocultar submenú por defecto */
+    display: none;
     position: absolute;
     top: 100%;
     left: 50%;
@@ -121,7 +130,7 @@ button:hover {
 }
 
 .menu-list > li:hover ul {
-    display: block; /* Mostrar submenú al pasar el ratón */
+    display: block;
 }
 
 .menu-list > li ul > li {
@@ -135,9 +144,29 @@ button:hover {
     color: #007bff;
     text-decoration: none;
     display: block;
-    text-align: 8px 16px;
+    padding: 8px 16px;
 }
 
 .menu-list > li ul > li a:hover {
     text-decoration: underline;
+}
+
+/* Media Queries para diseño responsivo */
+
+/* Pantallas medianas (tabletas) */
+@media (min-width: 768px) {
+    .menu-list {
+        flex-direction: row; /* Menú en línea para tabletas y pantallas más grandes */
+    }
+}
+
+/* Pantallas grandes (escritorio) */
+@media (min-width: 1024px) {
+    body {
+        height: auto;
+    }
+    .container {
+        width: 80%;
+        max-width: 1000px;
+    }
 }

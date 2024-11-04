@@ -1,15 +1,14 @@
+//parte del frontend:
 document.addEventListener('DOMContentLoaded', () => {
     const loginForm = document.getElementById('loginForm');
     const aperturaCajaForm = document.getElementById('aperturaCajaForm');
     const cierreCajaForm = document.getElementById('cierreCajaForm');
-    const registerBtn = document.getElementById('registerBtn');
     const registerForm = document.getElementById('registerForm');
-    const registerContainer = document.getElementById('registerContainer');
     const message = document.getElementById('message');
     const logoutButton = document.getElementById('logoutButton'); // Botón de cerrar sesión
-    
+
     // Manejador para el formulario de login
-    if (loginForm) {
+    if (loginForm) { // Solo si estamos en la página de login
         loginForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const username = document.getElementById('username').value;
@@ -35,17 +34,9 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
-    // Manejador para mostrar el formulario de registro
-    if (registerBtn) {
-        registerBtn.addEventListener('click', () => {
-            document.querySelector('.login-container').style.display = 'none';
-            registerContainer.style.display = 'block';
-        });
-    }
-    
+
     // Manejador para el formulario de registro
-    if (registerForm) {
+    if (registerForm) { // Solo si estamos en la página de registro
         registerForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const firstName = document.getElementById('firstName').value;
@@ -53,9 +44,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const email = document.getElementById('email').value;
             const password = document.getElementById('passwordReg').value;
             const confirmPassword = document.getElementById('confirmPassword').value;
+            
             if (password === confirmPassword) {
                 try {
-                    const hashedPassword = bcrypt.hashSync(password, 10); // Encriptar contraseña
+                    //const hashedPassword = bcrypt.hashSync(password, 10); // eliminamos el Encriptar contraseña
                     const response = await fetch('/register', {
                         method: 'POST',
                         headers: {
@@ -66,8 +58,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     const data = await response.json();
                     if (response.ok) {
                         alert(`¡Registro exitoso de ${firstName} ${lastName} con correo: ${email}!`);
-                        document.querySelector('.login-container').style.display = 'block';
-                        registerContainer.style.display = 'none';
+                        window.location.href = 'login.html'; // Redirigir a la página de login después del registro
                     } else {
                         alert(data.message);
                     }
@@ -79,7 +70,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
+
     // Manejador para el formulario de apertura de caja
     if (aperturaCajaForm) {
         const username = localStorage.getItem('username'); // Obtener el nombre de usuario
@@ -108,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
             }
         });
     }
-    
+
     // Manejador para el formulario de cierre de caja
     if (cierreCajaForm) {
         const username = localStorage.getItem('username');
@@ -166,11 +157,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Manejador para el botón de cerrar sesión
     if (logoutButton) {
-        logoutButton.addEventListener('click', () => {
-            localStorage.removeItem('token');
-            localStorage.removeItem('username');
-            alert('Cierre de sesión exitoso');
-            window.location.href = 'index.html'; // Redirigir a la página de login
+        logoutButton.addEventListener('click', async () => {
+            console.log('Logout button clicked'); // Confirmación del evento
+
+            try {
+                const response = await fetch('/logout', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json',
+                    }
+                });
+
+                if (response.ok) {
+                    localStorage.removeItem('token');
+                    localStorage.removeItem('username');
+                    window.location.href = 'index.html';
+                } else {
+                    console.error('Error al cerrar sesión:', response.statusText);
+                }
+            } catch (error) {
+                console.error('Error en la conexión:', error);
+            }
         });
     }
 });
